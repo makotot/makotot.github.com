@@ -1,0 +1,11 @@
+auto: false
+server: false
+server_port: 4000
+base-url: /
+
+source: .
+destination: ./site
+
+
+markdown: rdiscount 
+pygments: true
