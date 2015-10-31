@@ -1,0 +1,26 @@
+{
+  "name": "makotot.github.io",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makotot/makotot.github.io.git"
+  },
+  "author": "makotot",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/makotot/makotot.github.io/issues"
+  },
+  "homepage": "https://github.com/makotot/makotot.github.io#readme",
+  "devDependencies": {
+    "browser-sync": "^2.9.11",
+    "del": "^2.0.2",
+    "gulp": "^3.9.0",
+    "gulp-ejs": "^1.2.1",
+    "run-sequence": "^1.1.4"
+  }
+}
