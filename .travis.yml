@@ -9,7 +9,7 @@ env:
   - GIT_COMMITTER_EMAIL=makoto.ttn@gmail.com
   - GIT_AUTHOR_NAME=makotot
   - GIT_AUTHOR_EMAIL=makoto.ttn@gmail.com
-  - secure: PTyxrK1CH4ao/yLohzVbVohkryNYumyHHhf1Ej81AQNttexcat/RPSDK7lEbBi5MIrC2WhLDCWm8o9+KeqBKrnjQto1q4i3jB+K7zu5hV5clWrP2R4lcrNWVYaDLR3+6mta615LfP6VniR7bRVI0fG8/eZApx/yPI2iTP+kWVIs=
+  - secure: "myL7jXX6PZnnxOMIEn153S9ipPlxHu40nsICEqN+6nRKvD8Ren5GHnLXQrtkbPUmo0FjrSX8NYA3eB1uCn0fC5brAe2BGqHnHlEP5AizJJN4bu1hogEGNirW8yrxBxqNh7mSOUOJNwacHcgepWVuXOhEt58p5Un7Q4R0Qh1Y634="
 
 branches:
   only:
