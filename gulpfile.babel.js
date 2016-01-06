@@ -8,6 +8,8 @@ import postcss from 'gulp-postcss'
 import normalizeCss from 'postcss-normalize'
 import cssnano from 'cssnano'
 import autoprefixer from 'autoprefixer'
+import clearfix from 'postcss-clearfix'
+import calc from 'postcss-calc'
 
 
 gulp.task('clean', (done) => {
@@ -38,6 +40,8 @@ gulp.task('style', ['scss'], () => {
   return gulp
     .src(['./tmp/css/*.css'])
     .pipe(postcss([
+      clearfix(),
+      calc(),
       normalizeCss(),
       autoprefixer(),
       cssnano()
