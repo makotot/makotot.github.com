@@ -33,6 +33,7 @@
     "gulp-eslint": "^1.1.1",
     "gulp-postcss": "^6.0.1",
     "gulp-sass": "^2.1.1",
+    "postcss-assets": "^3.0.3",
     "postcss-calc": "^5.1.0",
     "postcss-clearfix": "^0.2.0",
     "postcss-normalize": "^0.1.2",

@@ -10,6 +10,7 @@ import cssnano from 'cssnano'
 import autoprefixer from 'autoprefixer'
 import clearfix from 'postcss-clearfix'
 import calc from 'postcss-calc'
+import assets from 'postcss-assets'
 
 
 gulp.task('clean', (done) => {
@@ -40,13 +41,15 @@ gulp.task('style', ['scss'], () => {
   return gulp
     .src(['./tmp/css/*.css'])
     .pipe(postcss([
+      normalizeCss(),
       clearfix(),
       calc(),
-      normalizeCss(),
+      assets(),
       autoprefixer(),
       cssnano()
     ]))
     .pipe(gulp.dest('./dist/css'))
+    .pipe(browserSync.stream())
 })
 
 gulp.task('compile', ['template', 'style'])
@@ -58,6 +61,13 @@ gulp.task('serve', () => {
       open: false
     })
   })
+
+  gulp
+    .watch(['./dist/*.html'])
+    .on('change', browserSync.reload);
+
+  gulp.watch(['./src/templates/**/*.ejs'], ['template'])
+  gulp.watch(['./src/scss/**/*.scss'], ['style'])
 })
 
 gulp.task('build', () => {
