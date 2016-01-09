@@ -11,6 +11,8 @@ import autoprefixer from 'autoprefixer'
 import clearfix from 'postcss-clearfix'
 import calc from 'postcss-calc'
 import assets from 'postcss-assets'
+import stylelint from 'stylelint'
+import reporter from 'postcss-reporter'
 
 
 gulp.task('clean', (done) => {
@@ -45,8 +47,10 @@ gulp.task('style', ['scss'], () => {
       clearfix(),
       calc(),
       assets(),
+      stylelint(),
       autoprefixer(),
-      cssnano()
+      cssnano(),
+      reporter()
     ]))
     .pipe(gulp.dest('./dist/css'))
     .pipe(browserSync.stream())

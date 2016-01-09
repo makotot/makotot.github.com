@@ -39,7 +39,7 @@
     "postcss-normalize": "^0.1.2",
     "postcss-reporter": "^1.3.0",
     "run-sequence": "^1.1.5",
-    "stylelint": "^2.3.1",
-    "stylelint-config-makotot": "0.0.3"
+    "stylelint": "^3.2.1",
+    "stylelint-config-makotot": "^0.1.0"
   }
 }
