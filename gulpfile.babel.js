@@ -13,6 +13,10 @@ import calc from 'postcss-calc'
 import assets from 'postcss-assets'
 import stylelint from 'stylelint'
 import reporter from 'postcss-reporter'
+import browserify from 'browserify'
+import babelify from 'babelify'
+import source from 'vinyl-source-stream'
+import buffer from 'vinyl-buffer'
 
 
 gulp.task('clean', (done) => {
@@ -56,7 +60,35 @@ gulp.task('style', ['scss'], () => {
     .pipe(browserSync.stream())
 })
 
-gulp.task('compile', ['template', 'style'])
+gulp.task('script', () => {
+
+  const bundler = browserify('./src/js/app.jsx', {
+    debug: true
+  }).transform(babelify, {
+    'presets': ['es2015', 'react'],
+    'plugins': ['transform-object-assign']
+  })
+
+  function rebundle () {
+    bundler
+      .bundle()
+      .on('error', function (err) {
+        console.error(err); this.emit('end');
+      })
+      .pipe(source('app.js'))
+      .pipe(buffer())
+      .pipe(gulp.dest('./dist/js'));
+  }
+
+  bundler.on('update', function () {
+    console.log('-> bundling...');
+    rebundle();
+  });
+
+  rebundle();
+})
+
+gulp.task('compile', ['template', 'style', 'script'])
 
 gulp.task('serve', () => {
   runSequence('clean', ['compile'], () => {
@@ -72,6 +104,7 @@ gulp.task('serve', () => {
 
   gulp.watch(['./src/templates/**/*.ejs'], ['template'])
   gulp.watch(['./src/scss/**/*.scss'], ['style'])
+  gulp.watch(['./src/js/**/*.{js,jsx}'], ['script'])
 })
 
 gulp.task('build', () => {
